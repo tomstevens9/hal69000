@@ -1,0 +1,39 @@
+{% extends 'frontend/base.html' %}
+
+{% load static %}
+
+{% block title %}
+HAL 69000
+{% endblock %}
+
+{% block content %}
+<div>
+  <span>Sound 1</span>
+  <br />
+  <audio controls>
+    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
+  </audio>
+</div>
+<div>
+  <span>Sound 2</span>
+  <br />
+  <br />
+  <audio controls>
+    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
+  </audio>
+</div>
+<div>
+  <span>Sound 3</span>
+  <br />
+  <audio controls>
+    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
+  </audio>
+</div>
+<div>
+  <span>Sound 4</span>
+  <br />
+  <audio controls>
+    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
+  </audio>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+    <link type="text/css" rel="stylesheet" href="{% static 'frontend/main.css' %}" />
+    <link rel="icon" type="image/x-icon" href="{% static 'frontend/favicon.ico' %}">
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="image-container">
+          <img src="{% static 'frontend/circle_cat.gif' %}"/>
+        </div>
+        <div id="header-title"></div>
+      </div>
+      <div id="body">
+        <div id="left-bar">
+        </div>
+        <div id="content">
+          {% block content %}
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
