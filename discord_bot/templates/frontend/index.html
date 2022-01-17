@@ -2,38 +2,37 @@
 
 {% load static %}
 
+
+<!-- TODO replace font awesome anchors with buttons -->
+
 {% block title %}
 HAL 69000
 {% endblock %}
 
 {% block content %}
-<div>
-  <span>Sound 1</span>
-  <br />
-  <audio controls>
-    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
-  </audio>
-</div>
-<div>
-  <span>Sound 2</span>
-  <br />
-  <br />
-  <audio controls>
-    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
-  </audio>
-</div>
-<div>
-  <span>Sound 3</span>
-  <br />
-  <audio controls>
-    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
-  </audio>
-</div>
-<div>
-  <span>Sound 4</span>
-  <br />
-  <audio controls>
-    <source src="{% static 'frontend/100.mp3' %}" type="audio/mpeg" >
-  </audio>
+<div class="sounds-container">
+  {% for sound in sounds %}
+  <div class='sound-container'>
+    <div class="sound-name">{{ sound.command }}</div>
+    <div class="sound-action">
+      <!-- TODO FIX SOUND LINK -->
+      <a class="my-link" onclick="playSound('static{{ sound.filename.url }}')" href="#" title="Play in browser"><i class="fas fa-play-circle"></i></a>
+    </div>
+    <div class="sound-action">
+      <a class="my-link" href="#" title="Play in Discord"><i class="fab fa-discord"></i></a>
+    </div>
+  </div>
+  <hr>
+  {% endfor %}
+  <div class='sound-upload-container'>
+    <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+      <div class='upload-fields'>
+        {% csrf_token %}
+        {{ form }}
+      </div>
+      <!-- TODO submit the form better -->
+      <a class="my-link" onclick="this.closest('form').submit();return false;" href="#"><i class="fas fa-plus"></i></a>
+    </form>
+  </div>
 </div>
 {% endblock %}
