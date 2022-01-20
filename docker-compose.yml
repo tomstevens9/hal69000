@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  website:
+    build:
+      context: ./website
+      dockerfile: Dockerfile
+  nginx:
+    image: nginx:1.21.5
+    ports:
+      - "80:80"
+  bot:
+    build:
+      context: ./bot
+      dockerfile: Dockerfile
+
+volumes:
+  sounds:
