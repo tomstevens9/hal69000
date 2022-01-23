@@ -1,18 +1,45 @@
-version: '2'
+version: '3'
 
 services:
+  db:
+    image: postgres:14.1
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: secret-password
+
   website:
     build:
       context: ./website
       dockerfile: Dockerfile
+    volumes:
+      - static:/app/staticfiles
+      - media:/app/media
+    depends_on:
+      - "db"
+
   nginx:
-    image: nginx:1.21.5
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     ports:
       - "80:80"
+    depends_on:
+      - "website"
+    volumes:
+      - static:/static:ro
+      - media:/media:ro
+
   bot:
     build:
       context: ./bot
       dockerfile: Dockerfile
+    volumes:
+      - media:/app/media:ro
+    depends_on:
+      - "db"
 
 volumes:
-  sounds:
+  static:
+    external: true
+  media:
+    external: true

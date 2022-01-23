@@ -4,7 +4,7 @@ import io
 
 TOKEN = 'ODAwMDA0MjEwNTA2MjAzMTM2.YALz-w.8oESh9gLTgk04iBSmA1YgXIXUvE'
 
-discord.opus.load_opus('/usr/local/lib/libopus.dylib')
+# discord.opus.load_opus('/usr/local/lib/libopus.dylib')
 
 client = discord.Client()
 voice_client = None
@@ -46,9 +46,9 @@ async def on_message(message):
         # make sure bot is connected to voice chat
         if voice_client is None or not voice_client.is_connected():
             voice_client = await message.author.voice.channel.connect()
-        filepath = f'/Users/tom/new_bot/discord_bot/static/{filename}'
+        filepath = f'sounds/{filename}'
         print(filepath)
-        sound_file = discord.FFmpegPCMAudio(executable='/usr/local/bin/ffmpeg', source=filepath)
+        sound_file = discord.FFmpegPCMAudio(executable='/usr/bin/ffmpeg', source=filepath)
         voice_client.play(sound_file)
         
 client.run(TOKEN)
