@@ -1,10 +1,22 @@
 import discord
 import time
 import io
+import os
+import psycopg2
 
-TOKEN = 'ODAwMDA0MjEwNTA2MjAzMTM2.YALz-w.8oESh9gLTgk04iBSmA1YgXIXUvE'
+REQUIRED_VARIABLES = ['DISCORD_TOKEN', 'POSTGRES_PASSWORD']
+missing_variables = [var
+                     for var
+                     in REQUIRED_VARIABLES
+                     if var not in os.environ]
+if missing_variables:
+    print(f'Environment variables {missing_variables} must be set before running bot.', flush=True)
 
-# discord.opus.load_opus('/usr/local/lib/libopus.dylib')
+
+TOKEN = os.environ['DISCORD_TOKEN']
+
+print('Connecting to database\n', flush=True)
+conn = psycopg2.connect(f"dbname='postgres' user='postgres' host='db' password='{os.environ['POSTGRES_PASSWORD']}'")
 
 client = discord.Client()
 voice_client = None
@@ -15,10 +27,11 @@ class Flag:
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+    print('We have logged in as {0.user}'.format(client), flush=True)
 
 @client.event
 async def on_message(message):
+    print('Received message', flush=True)
     global voice_client
 
     # never respond to own messages
@@ -26,28 +39,22 @@ async def on_message(message):
         return
 
     message_text = message.content
-    print(message_text)
-    filename = {
-            '-callback': 'whats_a_callback.m4a',
-            '-catchphrase': 'catchphrase.mp4',
-            '-;)': 'winkyface.mp4',
-            '-doctor': 'doctor.mp4',
-            '-quack': 'quack.mp4',
-            '-ooowee': 'ooowee.mp3',
-            '-fart': 'fart.mp4',
-            '-ree': 'ree.mp3',
-            '-pog': 'pog.mp4',
-            '-shape': 'shape.mp3',
-            '-spaghetti': 'spaghet.mp3',
-            '-ko': 'KO.mp3',
-            '-100': '100.mp3',
-    }.get(message_text)
+    if message.content.startswith('-'):
+        cur = conn.cursor()
+        query = f'SELECT filename FROM frontend_sound WHERE command LIKE \'%{message.content[1:]}%\' LIMIT 1'
+        print(f'Running query - {query}', flush=True)
+        cur.execute(query)
+        row = cur.fetchone()
+        cur.close()
+        if row:
+            filename = row[0]
+            print(f'Found sound: {filename}', flush=True)
+
     if filename:
         # make sure bot is connected to voice chat
         if voice_client is None or not voice_client.is_connected():
             voice_client = await message.author.voice.channel.connect()
-        filepath = f'sounds/{filename}'
-        print(filepath)
+        filepath = f'/app/media/{filename}'
         sound_file = discord.FFmpegPCMAudio(executable='/usr/bin/ffmpeg', source=filepath)
         voice_client.play(sound_file)
         

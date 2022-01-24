@@ -5,7 +5,7 @@ services:
     image: postgres:14.1
     restart: always
     environment:
-      POSTGRES_PASSWORD: secret-password
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   website:
     build:
@@ -16,6 +16,8 @@ services:
       - media:/app/media
     depends_on:
       - "db"
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
 
   nginx:
     build:
@@ -37,6 +39,9 @@ services:
       - media:/app/media:ro
     depends_on:
       - "db"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      DISCORD_TOKEN: ${DISCORD_TOKEN}
 
 volumes:
   static:
