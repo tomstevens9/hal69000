@@ -16,6 +16,7 @@ services:
       - media:/app/media
     depends_on:
       - "db"
+      - "rabbitmq"
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
 
@@ -39,9 +40,14 @@ services:
       - media:/app/media:ro
     depends_on:
       - "db"
+      - "rabbitmq"
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DISCORD_TOKEN: ${DISCORD_TOKEN}
+
+  rabbitmq:
+    image: rabbitmq:3.9.13
+
 
 volumes:
   static:
