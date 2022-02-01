@@ -26,11 +26,11 @@ body {
   width: 100%;
   height: 210px;
   display: flex;
+  padding: 1rem;
 }
 
 #image-container {
-  width 211px;
-  padding: 5px;
+  padding: 1rem 2rem;
 }
 
 #header-title {
@@ -47,14 +47,22 @@ body {
 }
 
 #content {
-  width: 690px;
+  padding: 1rem;
   flex-grow: 1;
+  display: flex;
+  width: 95%;
+}
+
+.sounds-container {
+  width: 75%;
+  padding: 1rem;
 }
 
 .sound-container {
   display: flex;
   font-size: 1.5em;
-  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid black;
 }
 
 .sound-name {
@@ -66,15 +74,7 @@ body {
 
 .sound-action {
   width: 50px;
-}
-
-.sounds-container hr {
-  width: 85%;
-  align: center;
-  color: #757575;
-  background-color: #757575;
-  height: 1px;
-  border: none;
+  margin-right: 1rem;
 }
 
 .my-link:link, .my-link:visited, .my-link:active {
@@ -85,8 +85,22 @@ body {
   color: #757575;
 }
 
+.discord-link, .discord-link:visited, .discord-link:active {
+  color: #7289da;
+}
+
+.discord-link:hover {
+  color: rgba(114, 137, 218, 0.75);
+}
+
+.sound-upload-container {
+  width: 25%;
+  padding: 1rem;
+}
+
 .sound-upload-container form {
   display: flex;
+  flex-direction: column;
 }
 
 .upload-fields {
@@ -94,6 +108,71 @@ body {
 }
 
 .sound-upload-container a {
-  width: 50px;
+  width: inherit;
   font-size: 1.5em;
+}
+
+.fas {
+  float: right;
+}
+
+.fieldWrapper {
+  padding-bottom: 0.5rem;
+}
+
+.fieldWrapper > label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: 700;
+}
+
+.fieldWrapper > input {
+  width: 95%;
+}
+
+/* disco */
+
+@keyframes disco {
+  0% {
+    background-color: orange;
+  }
+  20% { 
+    background-color: aquamarine;
+  }
+  30% {
+    background-color: yellow;
+  }
+  40% {
+    background-color: aqua;
+  }
+  50% {
+    background-colour: red;
+  }
+  60% {
+    background-color: blue;
+  }
+  80% {
+    background-color: purple;
+  }
+  100% {
+    background-color: orange;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.disco {
+  animation: disco 1s infinite;
+}
+
+.header-disco {
+  animation: rotation 2s infinite linear;
 }

@@ -10,3 +10,9 @@ const sendCommand = commandName => {
   request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
   request.send(`command=${commandName}`)
 }
+
+const disco = () => {
+  document.body.classList.add('disco');
+  const headerElement = document.getElementById('image-header');
+  headerElement.classList.add('header-disco');
+}
