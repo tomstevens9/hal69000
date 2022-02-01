@@ -35,7 +35,7 @@ HAL 69000
     <div class="sound-name">{{ sound.command }}</div>
     <div class="sound-action">
       <!-- TODO FIX SOUND LINK -->
-      <a class="my-link" onclick="playSound('{{ sound.filename.url }}')" href="#" title="Play in browser"><i class="fas fa-play-circle"></i></a>
+      <div class="my-link" onclick="playSound('{{ sound.filename.url }}')" title="Play in browser"><i class="fas fa-play-circle"></i></div>
     </div>
     <div class="sound-action">
       <a class="discord-link" onclick="sendCommand('{{ sound.command }}')"  href="#" title="Play in Discord"><i class="fab fa-discord"></i></a>
