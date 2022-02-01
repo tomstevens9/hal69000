@@ -13,14 +13,14 @@
   </head>
   <body>
     <div id="container">
-      <div id="header">
+      <div id="header" onclick="disco()">
         <div id="image-container">
-          <img src="{% static 'frontend/mario.webp' %}"/>
+          <img id="image-header" src="{% static 'frontend/mario.webp' %}"/>
         </div>
         <div id="header-title"></div>
       </div>
       <div id="body">
-        <div id="left-bar">
+        <!-- <div id="left-bar"> -->
         </div>
         <div id="content">
           {% block content %}
