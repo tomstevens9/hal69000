@@ -101,6 +101,8 @@ body {
 .sound-upload-container form {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  width: 13rem;  
 }
 
 .upload-fields {
