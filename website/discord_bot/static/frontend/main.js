@@ -11,6 +11,15 @@ const sendCommand = commandName => {
   request.send(`command=${commandName}`)
 }
 
+const playRandomSound = () => {
+  const tagName = document.getElementById("some-input").value;
+  const request = new XMLHttpRequest()
+  request.open('POST', '/play-random-sound/', true)
+  request.setRequestHeader('X-CSRFToken', csrftoken);
+  request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+  request.send(`tag_name=${tagName}`)
+}
+
 const disco = () => {
   document.body.classList.add('disco');
   const headerElement = document.getElementById('image-header');
