@@ -1,0 +1,99 @@
+* {
+  font-family: sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#container {
+  width: 900px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header {
+  width: 100%;
+  height: 210px;
+  display: flex;
+}
+
+#image-container {
+  width 211px;
+  padding: 5px;
+}
+
+#header-title {
+  flex-grow: 1;
+}
+
+#body {
+  width: 100%;
+  display: flex;
+}
+
+#left-bar {
+  width: 210px;
+}
+
+#content {
+  width: 690px;
+  flex-grow: 1;
+}
+
+.sound-container {
+  display: flex;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.sound-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
+.sound-action {
+  width: 50px;
+}
+
+.sounds-container hr {
+  width: 85%;
+  align: center;
+  color: #757575;
+  background-color: #757575;
+  height: 1px;
+  border: none;
+}
+
+.my-link:link, .my-link:visited, .my-link:active {
+  color: black;
+}
+
+.my-link:hover {
+  color: #757575;
+}
+
+.sound-upload-container form {
+  display: flex;
+}
+
+.upload-fields {
+  flex-grow: 1;
+}
+
+.sound-upload-container a {
+  width: 50px;
+  font-size: 1.5em;
+}
