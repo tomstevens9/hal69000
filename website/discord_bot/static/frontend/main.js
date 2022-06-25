@@ -11,8 +11,7 @@ const sendCommand = commandName => {
   request.send(`command=${commandName}`)
 }
 
-const playRandomSound = () => {
-  const tagName = document.getElementById("some-input").value;
+const playRandomSound = tagName => {
   const request = new XMLHttpRequest()
   request.open('POST', '/play-random-sound/', true)
   request.setRequestHeader('X-CSRFToken', csrftoken);

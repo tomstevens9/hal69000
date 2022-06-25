@@ -6,6 +6,8 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql/data:rw
 
   website:
     build:
@@ -19,6 +21,7 @@ services:
       - "rabbitmq"
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   nginx:
     build:
@@ -44,6 +47,7 @@ services:
     environment:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       DISCORD_TOKEN: ${DISCORD_TOKEN}
+      GUILD_ID: ${GUILD_ID}
 
   rabbitmq:
     image: rabbitmq:3.9.13
@@ -54,4 +58,6 @@ volumes:
   static:
     external: true
   media:
+    external: true
+  db_data:
     external: true

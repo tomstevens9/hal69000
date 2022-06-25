@@ -10,23 +10,31 @@ HAL 69000
 {% endblock %}
 
 {% block content %}
-<div class='sound-upload-container'>
-  <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
-    <div class='upload-fields'>
-      {% csrf_token %}
-      <!-- {{ form }} -->
-      <div class="fieldWrapper">
-        <label for="{{ form.command.id_for_label }}">Command:</label>
-        {{ form.command }}
+<div id="side-bar"/>
+  <div class='sound-upload-container'>
+    <form action="{% url 'index' %}" method="POST" enctype="multipart/form-data">
+      <div class='upload-fields'>
+        {% csrf_token %}
+        <!-- {{ form }} -->
+        <div class="fieldWrapper">
+          <label for="{{ form.command.id_for_label }}">Command:</label>
+          {{ form.command }}
+        </div>
+        <div class="fieldWrapper">
+          <label for="{{ form.filename.id_for_label }}">Filename:</label>
+          {{ form.filename }}
+        </div>      
       </div>
-      <div class="fieldWrapper">
-        <label for="{{ form.filename.id_for_label }}">Filename:</label>
-        {{ form.filename }}
-      </div>      
-    </div>
-    <!-- TODO submit the form better -->
-    <a class="my-link" onclick="this.closest('form').submit();return false;" href="#"><i class="fas fa-plus"></i></a>
-  </form>
+      <!-- TODO submit the form better -->
+      <a class="my-link" onclick="this.closest('form').submit();return false;" href="#"><i class="fas fa-plus"></i></a>
+    </form>
+  </div>
+  <div id="popular-tags">
+    <h3>Popular tags</h3>
+    {% for tag in popular_tags %}
+        <div class="my-link" onclick="playRandomSound('{{ tag.name }}')" title="Play random sound for tag">{{ tag.name }}</div>
+    {% endfor %}
+  </div>
 </div>
 <div class="sounds-container">
   <h3>List of current sounds</h3>
@@ -42,12 +50,6 @@ HAL 69000
     </div>
   </div>
   {% endfor %}
-  <div id="wip">
-    <div class='random-sound'>
-        <input id="some-input" name="some-input" type="text" />
-        <input value="Play" id="some-button" name="some-button" type="button" onclick="playRandomSound()" />
-    </div>
-  </div>
 </div>
 
 {% endblock %}

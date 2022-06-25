@@ -93,15 +93,15 @@ body {
   color: rgba(114, 137, 218, 0.75);
 }
 
-.sound-upload-container {
+.side-bar {
   width: 25%;
   padding: 1rem;
+  position: fixed;
 }
 
 .sound-upload-container form {
   display: flex;
   flex-direction: column;
-  position: fixed;
   width: 13rem;  
 }
 

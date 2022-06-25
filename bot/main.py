@@ -8,7 +8,7 @@ import threading
 import asyncio
 
 
-REQUIRED_VARIABLES = ['DISCORD_TOKEN', 'POSTGRES_PASSWORD']
+REQUIRED_VARIABLES = ['DISCORD_TOKEN', 'POSTGRES_PASSWORD', 'GUILD_ID']
 missing_variables = [var
                      for var
                      in REQUIRED_VARIABLES
@@ -56,7 +56,7 @@ async def test_task():
                 # make sure bot is connected to voice chat
                 if len(client.voice_clients) == 0:
                     # get the voice channel from the guild
-                    guild = client.get_guild(711529317313675264)
+                    guild = client.get_guild(int(os.environ['GUILD_ID']))
                     voice_channel = guild.voice_channels[0]
                     await voice_channel.connect()
                 voice_client = client.voice_clients[0]
