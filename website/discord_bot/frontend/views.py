@@ -12,6 +12,8 @@ import pika
 import random
 
 
+# Unused in React version
+"""
 @login_required
 def index(request):
     if request.method == 'POST':
@@ -28,8 +30,8 @@ def index(request):
         'form': form,
         'popular_tags': popular_tags,
     }
-    return render(request, 'frontend/index.html', context)
-
+    return render(request, 'index.html', context)
+"""
 
 @csrf_exempt
 @api_view(['POST'])
