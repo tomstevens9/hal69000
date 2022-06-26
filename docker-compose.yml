@@ -9,9 +9,9 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data:rw
 
-  website:
+  api:
     build:
-      context: ./website
+      context: ./api
       dockerfile: Dockerfile
     volumes:
       - static:/app/staticfiles

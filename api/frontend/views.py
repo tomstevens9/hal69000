@@ -6,11 +6,9 @@ from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Sound, Tag, SoundHistory
-from .forms import SoundForm
 
 import pika
 import random
-
 
 # Unused in React version
 """
@@ -32,6 +30,10 @@ def index(request):
     }
     return render(request, 'index.html', context)
 """
+
+# TODO
+# * Login
+# * Get sounds
 
 @csrf_exempt
 @api_view(['POST'])
