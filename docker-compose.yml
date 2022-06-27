@@ -9,9 +9,9 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data:rw
 
-  api:
+  frontend:
     build:
-      context: ./api
+      context: ./frontend
       dockerfile: Dockerfile
     volumes:
       - static:/app/staticfiles
@@ -30,7 +30,7 @@ services:
     ports:
       - "80:80"
     depends_on:
-      - "website"
+      - "frontend"
     volumes:
       - static:/static:ro
       - media:/media:ro
