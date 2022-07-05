@@ -1,0 +1,73 @@
+#login-container {
+	display: flex;
+  align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+
+#login-box {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  width: 200px;
+  height: 350px;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #303030;
+}
+
+#login-box div {
+  height: 125px;
+}
+
+#login-box form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#login-box label {
+  font-size: 10pt;
+}
+
+#login-box .input-field {
+  height: 70px;
+}
+
+#login-box input[type=text], #login-box input[type=password] {
+  font-size: 12pt;
+  padding: 8px 0 8px 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border: 0;
+  border-bottom: 1px solid #212121;
+  background-color: inherit;
+  outline: none;
+	color: inherit;
+}
+
+#login-box input[type=text]:focus, #login-box input[type=password]:focus {
+  border: 0;
+  border-bottom: 2px solid #212121;
+  outline: none;
+}
+
+#login-box input[type=submit] {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 20px 10px 10px 10px;
+  background: #00B0FF;
+  font-size: 14pt;
+  border: 0;
+  outline: none;
+}
+
+#login-box input[type=submit]:hover, #login-box input[type=submit]:focus {
+  cursor: pointer;
+}

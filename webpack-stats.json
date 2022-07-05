@@ -1,0 +1,26 @@
+{
+  "status": "done",
+  "assets": {
+    "main-a5a2aefb34d33cd1e915.js": {
+      "name": "main-a5a2aefb34d33cd1e915.js",
+      "path": "/home/tstevens/hal69000/static/frontend/main-a5a2aefb34d33cd1e915.js",
+      "publicPath": "static/frontend/main-a5a2aefb34d33cd1e915.js"
+    },
+    "7f7721095c9b4785deaa.webp": {
+      "name": "7f7721095c9b4785deaa.webp",
+      "path": "/home/tstevens/hal69000/static/frontend/7f7721095c9b4785deaa.webp",
+      "publicPath": "static/frontend/7f7721095c9b4785deaa.webp"
+    },
+    "favicon.ico": {
+      "name": "favicon.ico",
+      "path": "/home/tstevens/hal69000/static/frontend/favicon.ico",
+      "publicPath": "static/frontend/favicon.ico"
+    }
+  },
+  "chunks": {
+    "main": [
+      "main-a5a2aefb34d33cd1e915.js"
+    ]
+  },
+  "publicPath": "static/frontend/"
+}

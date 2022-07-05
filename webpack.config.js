@@ -1,17 +1,26 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleTracker = require('webpack-bundle-tracker')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+
 const path = require('path');
 
 module.exports = {
   entry: path.resolve(__dirname, 'frontend_src', 'index.js'),
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist'),
+    filename: '[name]-[fullhash].js',
+    path: path.resolve(__dirname, 'static', 'frontend'),
+    publicPath: 'static/frontend/',
   },
   plugins: [
-    new HtmlWebpackPlugin({
-        title: 'HAL69000',
-        favicon: path.resolve(__dirname, 'favicon.ico'),
-        template: path.resolve(__dirname, 'frontend_src', 'index.html')
+    new CleanWebpackPlugin(),
+    new BundleTracker({
+      path: __dirname,
+      filename: './webpack-stats.json',
+    }),
+    new CopyPlugin({
+        patterns: [
+            'favicon.ico'    
+        ]
     })
   ],
   module: {

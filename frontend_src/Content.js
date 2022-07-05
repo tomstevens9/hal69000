@@ -1,18 +1,42 @@
-const doNothing = () => {}
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import SoundContainer from './SoundContainer.js'
+
+import { getSounds } from './api'
+import { update } from './soundsSlice'
+
+// Attempt to get sounds every minute
 
 function Content(props) {
+  const sounds = useSelector(state => state.sounds.sounds)
+  const dispatch = useDispatch()
+
+  const updateSounds = () => {
+    getSounds()
+      .then(sounds => dispatch(update(sounds)))
+  }
+
+  useEffect(() => {
+    // Get the sounds initially 
+    updateSounds()
+  }, [])
+
+  /*
+  useEffect(() => {
+    // Get sounds every 5 seconds
+    const interval = setInterval(() => {
+      updateSounds()
+    }, 1000 * 5)
+
+    return () => {
+      clearInterval(interval)
+    }
+  })
+  */
+
   return (
     <div className="sounds-container">
-      <h3>List of current sounds</h3>
-      <div className='sound-container'>
-        <div className="sound-name">Sound name</div>
-        <div className="sound-action">
-          <div className="my-link" onClick={doNothing} title="Play in browser"><i className="fas fa-play-circle"></i></div>
-        </div>
-        <div className="sound-action">
-          <a className="discord-link" onClick={doNothing}  href="#" title="Play in Discord"><i className="fab fa-discord"></i></a>
-        </div>
-      </div>
+      {sounds.map(sound => <SoundContainer sound={sound} key={sound.command}/>)}
     </div>
   )
 }

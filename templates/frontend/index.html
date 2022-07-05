@@ -1,0 +1,16 @@
+{% load render_bundle from webpack_loader %}
+{% load webpack_static from webpack_loader %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8"/>
+      <link rel="icon" type="image/x-icon" href="{% webpack_static 'favicon.ico' %}">
+      <script src="https://kit.fontawesome.com/d8bb7bdc2b.js" crossorigin="anonymous"></script>
+      {% render_bundle 'main' 'css' %}
+  </head>
+  <body>
+    <div id="root"></div>
+    {% render_bundle 'main' 'js' %}
+  </body>
+</html>

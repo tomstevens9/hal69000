@@ -5,3 +5,5 @@
 
 # Todo
 * Remove "sensitive" data from git history? (Not used in prod)
+* Add linting
+* Add tests
