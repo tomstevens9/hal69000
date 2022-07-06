@@ -7,27 +7,29 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('frontend', '0005_rename_command_soundhistory_sound'),
+        ("frontend", "0005_rename_command_soundhistory_sound"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='soundhistory',
-            old_name='played',
-            new_name='time',
+            model_name="soundhistory",
+            old_name="played",
+            new_name="time",
         ),
         migrations.RemoveField(
-            model_name='tag',
-            name='sounds',
+            model_name="tag",
+            name="sounds",
         ),
         migrations.AddField(
-            model_name='sound',
-            name='tags',
-            field=models.ManyToManyField(to='frontend.Tag'),
+            model_name="sound",
+            name="tags",
+            field=models.ManyToManyField(to="frontend.Tag"),
         ),
         migrations.AlterField(
-            model_name='soundhistory',
-            name='sound',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.DO_NOTHING, to='frontend.sound'),
+            model_name="soundhistory",
+            name="sound",
+            field=models.ForeignKey(
+                on_delete=django.db.models.deletion.DO_NOTHING, to="frontend.sound"
+            ),
         ),
     ]

@@ -6,7 +6,7 @@ from .models import Sound, Tag
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ['name']
+        fields = ["name"]
 
 
 class SoundSerializer(serializers.ModelSerializer):
@@ -15,9 +15,9 @@ class SoundSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sound
         fields = [
-            'command',
-            'filename',
-            'tags',
+            "command",
+            "filename",
+            "tags",
         ]
 
 
@@ -27,6 +27,6 @@ class CommandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sound
         fields = [
-            'command',
-            'tags',
+            "command",
+            "tags",
         ]

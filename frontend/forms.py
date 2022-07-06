@@ -6,4 +6,4 @@ from .models import Sound
 class SoundForm(ModelForm):
     class Meta:
         model = Sound
-        fields = '__all__'
+        fields = "__all__"

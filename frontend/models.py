@@ -28,9 +28,8 @@ class SoundHistory(models.Model):
             for tag in sound.tags.all():
                 tag_counts[tag] += 1
         # Order tags by most played
-        tags = (pair[0]
-                for pair
-                in sorted(tag_counts.items(),
-                          key=lambda x: x[1],
-                          reverse=True))
+        tags = (
+            pair[0]
+            for pair in sorted(tag_counts.items(), key=lambda x: x[1], reverse=True)
+        )
         return tags
