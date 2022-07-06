@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 import { useSelector } from 'react-redux'
 // TODO look into React.lazy
 import Login from './Login'
 import App from './App'
 
-import './common.css';
+import './common.css'
 
-function Base(props) {
+function Base (props) {
   const token = useSelector(state => state.auth.token)
 
   return (token == null) ? <Login /> : <App />
 }
 
-export default Base;
+export default Base

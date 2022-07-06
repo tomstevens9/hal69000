@@ -1,11 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
 import { getPopularTags, playRandomTag } from './api'
 import { update } from './tagsSlice'
 
-function PopularTags(props) {
-
+function PopularTags (props) {
   const tags = useSelector(state => state.tags.tags)
   const dispatch = useDispatch()
 
@@ -15,7 +14,7 @@ function PopularTags(props) {
   }
 
   useEffect(() => {
-    // Get the tags initially 
+    // Get the tags initially
     updateTags()
   }, [])
 
@@ -26,21 +25,21 @@ function PopularTags(props) {
   }
 
   return (
-    <div id="popular-tags">
+    <div id='popular-tags'>
       <h3>Popular tags</h3>
       {tags.map(
         tag => (
           <div
-            className="my-link"
-            title="Play random sound for tag"
+            className='my-link'
+            title='Play random sound for tag'
             key={tag.name}
             onClick={createClickHandler(tag.name)}
           >
-          {tag.name}
+            {tag.name}
           </div>)
       )}
     </div>
   )
 }
 
-export default PopularTags;
+export default PopularTags

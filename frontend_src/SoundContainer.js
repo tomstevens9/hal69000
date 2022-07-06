@@ -1,8 +1,6 @@
-import { getSound, sendCommand } from './api'
+import { sendCommand } from './api'
 
-const doNothing = () => {}
-
-function SoundContainer(props) {
+function SoundContainer (props) {
   const sound = props.sound
 
   const playSound = () => {
@@ -16,12 +14,12 @@ function SoundContainer(props) {
 
   return (
     <div className='sound-container'>
-      <div className="sound-name">{sound.command}</div>
-      <div className="sound-action">
-        <div className="my-link" onClick={playSound} title="Play in browser"><i className="fas fa-play-circle"></i></div>
+      <div className='sound-name'>{sound.command}</div>
+      <div className='sound-action'>
+        <div className='my-link' onClick={playSound} title='Play in browser'><i className='fas fa-play-circle' /></div>
       </div>
-      <div className="sound-action">
-        <a className="discord-link" onClick={sendSound}  href="#" title="Play in Discord"><i className="fab fa-discord"></i></a>
+      <div className='sound-action'>
+        <a className='discord-link' onClick={sendSound} href='#' title='Play in Discord'><i className='fab fa-discord' /></a>
       </div>
     </div>
   )

@@ -1,13 +1,13 @@
-import SideBar from './SideBar.js';
+import SideBar from './SideBar.js'
 import Content from './Content.js'
 
-function Body(props) {
+function Body (props) {
   return (
-      <div id="body">
-        <SideBar/>
-        <Content/>
-      </div>
+    <div id='body'>
+      <SideBar />
+      <Content />
+    </div>
   )
 }
 
-export default Body;
+export default Body

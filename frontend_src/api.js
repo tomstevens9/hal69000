@@ -1,18 +1,18 @@
-import axios from 'axios';
+import axios from 'axios'
 
 import { getCookie } from './util'
 
 const uploadSound = (commandName, commandFile) => {
-  let formData = new FormData()
-  formData.append("command", commandName)
-  formData.append("file", commandFile)
+  const formData = new FormData()
+  formData.append('command', commandName)
+  formData.append('file', commandFile)
   return axios({
     method: 'post',
     url: 'upload-sound/',
     data: formData,
     headers: {
       'X-CSRFToken': getCookie('csrftoken'),
-      'Authorization': `Token ${getCookie('logintoken')}`,
+      Authorization: `Token ${getCookie('logintoken')}`,
       'Content-Type': 'multipart/form-data'
     }
   })
@@ -30,16 +30,15 @@ const getSounds = () => {
     method: 'get',
     url: 'sounds/',
     headers: {
-      'Authorization': `Token ${getCookie('logintoken')}`
+      Authorization: `Token ${getCookie('logintoken')}`
     }
   })
     .then(response => {
       return response.data.reverse()
     })
     .catch(err => {
-      console.log('Failed to get sounds')
+      console.log(err)
       return []
-
     })
 }
 
@@ -48,14 +47,14 @@ const getPopularTags = () => {
     method: 'get',
     url: 'popular-tags/',
     headers: {
-      'Authorization': `Token ${getCookie('logintoken')}`
+      Authorization: `Token ${getCookie('logintoken')}`
     }
   })
     .then(response => {
       return response.data
     })
     .catch(err => {
-      console.log('Failed to get tags')
+      console.log(err)
       return []
     })
 }
@@ -67,7 +66,7 @@ const sendCommand = commandName => {
     data: `command=${commandName}`,
     headers: {
       'X-CSRFToken': getCookie('csrftoken'),
-      'Authorization': `Token ${getCookie('logintoken')}`,
+      Authorization: `Token ${getCookie('logintoken')}`
     }
   })
     .then(response => {
@@ -86,7 +85,7 @@ const playRandomTag = tagName => {
     data: `tag_name=${tagName}`,
     headers: {
       'X-CSRFToken': getCookie('csrftoken'),
-      'Authorization': `Token ${getCookie('logintoken')}`,
+      Authorization: `Token ${getCookie('logintoken')}`
     }
   })
     .then(response => {
@@ -98,4 +97,4 @@ const playRandomTag = tagName => {
     })
 }
 
-export { uploadSound, getSounds, getPopularTags, sendCommand, playRandomTag };
+export { uploadSound, getSounds, getPopularTags, sendCommand, playRandomTag }

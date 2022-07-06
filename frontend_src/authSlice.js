@@ -4,11 +4,11 @@ import { getCookie } from './util'
 export const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    token: getCookie('logintoken'),
+    token: getCookie('logintoken')
   },
   reducers: {
     login: (state, action) => {
-      state.token = action.payload 
+      state.token = action.payload
     },
     logout: (state) => {
       state.token = null

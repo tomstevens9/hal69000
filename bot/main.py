@@ -1,10 +1,8 @@
 import discord
 import time
-import io
 import os
 import psycopg2
 import pika
-import threading
 import asyncio
 
 
@@ -33,9 +31,9 @@ while not connected:
     except Exception:
         time.sleep(1)
 
+
 async def test_task():
     channel = connection.channel()
-    queue = channel.queue_declare(queue='commands')
     while True:
         __, __, command_bytes = channel.basic_get('commands', auto_ack=True)
         if command_bytes:
@@ -67,7 +65,8 @@ async def test_task():
                     await asyncio.sleep(.5)
         else:
             await asyncio.sleep(.5)
-    
+
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client), flush=True)
@@ -85,12 +84,11 @@ async def on_message(message):
         channel = connection.channel()
         channel.queue_declare(queue='commands')
         channel.basic_publish(exchange='',
-                      routing_key='commands',
-                      body=message.content[1:])
+                              routing_key='commands',
+                              body=message.content[1:])
 
 
 # Start consumer thread for the command consumer
-        
 print('Starting bot...', flush=True)
 # Start the bot
 client.loop.create_task(test_task())

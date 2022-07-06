@@ -7,8 +7,8 @@ export const soundsSlice = createSlice({
   },
   reducers: {
     update: (state, action) => {
-      state.sounds = action.payload 
-    },
+      state.sounds = action.payload
+    }
   }
 })
 

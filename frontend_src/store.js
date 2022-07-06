@@ -7,7 +7,6 @@ export default configureStore({
   reducer: {
     auth: authReducer,
     sounds: soundsSlice,
-    tags: tagsSlice,
-  },
+    tags: tagsSlice
+  }
 })
-

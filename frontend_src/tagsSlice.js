@@ -7,8 +7,8 @@ export const tagsSlice = createSlice({
   },
   reducers: {
     update: (state, action) => {
-      state.tags = action.payload 
-    },
+      state.tags = action.payload
+    }
   }
 })
 

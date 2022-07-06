@@ -1,15 +1,15 @@
-import './index.css';
+import './index.css'
 
-import Header from './Header';
-import Body from './Body';
+import Header from './Header'
+import Body from './Body'
 
-function App(props) {
+function App (props) {
   return (
-    <div id="container">
-      <Header/>
-      <Body/>
+    <div id='container'>
+      <Header />
+      <Body />
     </div>
   )
 }
 
-export default App;
+export default App
