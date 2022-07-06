@@ -21,6 +21,7 @@ services:
       - "rabbitmq"
     environment:
       DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DJANGO_SETTINGS_MODULE: "main.prod"
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
 
   nginx:
@@ -28,7 +29,7 @@ services:
       context: ./nginx
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "8080:80"
     depends_on:
       - "frontend"
     volumes:
