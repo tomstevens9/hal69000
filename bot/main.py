@@ -1,10 +1,10 @@
-import discord
-import time
-import os
-import psycopg2
-import pika
 import asyncio
+import os
+import time
 
+import discord
+import pika
+import psycopg2
 
 REQUIRED_VARIABLES = ["DISCORD_TOKEN", "POSTGRES_PASSWORD", "GUILD_ID"]
 missing_variables = [var for var in REQUIRED_VARIABLES if var not in os.environ]
@@ -37,7 +37,11 @@ while not connected:
 async def test_task():
     channel = connection.channel()
     while True:
-        __, __, command_bytes = channel.basic_get("commands", auto_ack=True)
+        try:
+            __, __, command_bytes = channel.basic_get("commands", auto_ack=True)
+        except Exception as e:
+            print(e)
+            await asyncio.sleep(0.5)
         if command_bytes:
             command = command_bytes.decode()
             print(f"Picked up command from queue - {command}")
