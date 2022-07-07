@@ -42,6 +42,7 @@ async def test_task():
         except Exception as e:
             print(e)
             await asyncio.sleep(0.5)
+            continue
         if command_bytes:
             command = command_bytes.decode()
             print(f"Picked up command from queue - {command}")
