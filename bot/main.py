@@ -33,16 +33,15 @@ while not connected:
     except Exception:
         time.sleep(1)
 
+# Ensure commands queue exists
+channel = connection.channel()
+channel.queue_declare(queue="commands")
+
 
 async def test_task():
     channel = connection.channel()
     while True:
-        try:
-            __, __, command_bytes = channel.basic_get("commands", auto_ack=True)
-        except Exception as e:
-            print(e)
-            await asyncio.sleep(0.5)
-            continue
+        __, __, command_bytes = channel.basic_get("commands", auto_ack=True)
         if command_bytes:
             command = command_bytes.decode()
             print(f"Picked up command from queue - {command}")
