@@ -1,16 +1,28 @@
-from django.db import models
-
 from collections import defaultdict
+
+from django.db import models
 
 
 class Tag(models.Model):
     name = models.CharField(max_length=30, unique=True)
+
+    def __repr__(self):
+        return f'Tag(name="{self.name}")'
+
+    def __str__(self):
+        return self.name
 
 
 class Sound(models.Model):
     command = models.CharField(max_length=30)
     filename = models.FileField(max_length=30)
     tags = models.ManyToManyField(Tag)
+
+    def __repr__(self):
+        return f'Sound(command="{self.command}")'
+
+    def __str__(self):
+        return self.command
 
 
 class SoundHistory(models.Model):
