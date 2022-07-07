@@ -4,3 +4,4 @@ __pycache__
 .env
 static
 node_modules
+webpack-stats.json

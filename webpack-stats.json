@@ -1,10 +1,10 @@
 {
   "status": "done",
   "assets": {
-    "main-a5a2aefb34d33cd1e915.js": {
-      "name": "main-a5a2aefb34d33cd1e915.js",
-      "path": "/home/tstevens/hal69000/static/frontend/main-a5a2aefb34d33cd1e915.js",
-      "publicPath": "static/frontend/main-a5a2aefb34d33cd1e915.js"
+    "main-03a8ff745e6b56a08fab.js": {
+      "name": "main-03a8ff745e6b56a08fab.js",
+      "path": "/home/tstevens/hal69000/static/frontend/main-03a8ff745e6b56a08fab.js",
+      "publicPath": "static/frontend/main-03a8ff745e6b56a08fab.js"
     },
     "7f7721095c9b4785deaa.webp": {
       "name": "7f7721095c9b4785deaa.webp",
@@ -15,11 +15,31 @@
       "name": "favicon.ico",
       "path": "/home/tstevens/hal69000/static/frontend/favicon.ico",
       "publicPath": "static/frontend/favicon.ico"
+    },
+    "main-6fd0a4bb56553b5591b5.js": {
+      "name": "main-6fd0a4bb56553b5591b5.js",
+      "path": "/home/tstevens/hal69000/static/frontend/main-6fd0a4bb56553b5591b5.js",
+      "publicPath": "static/frontend/main-6fd0a4bb56553b5591b5.js"
+    },
+    "main-71e677ddcf2c7d21cf7c.js": {
+      "name": "main-71e677ddcf2c7d21cf7c.js",
+      "path": "/home/tstevens/hal69000/static/frontend/main-71e677ddcf2c7d21cf7c.js",
+      "publicPath": "static/frontend/main-71e677ddcf2c7d21cf7c.js"
+    },
+    "main-7d4383aafa2f6f6cf58e.js": {
+      "name": "main-7d4383aafa2f6f6cf58e.js",
+      "path": "/home/tstevens/hal69000/static/frontend/main-7d4383aafa2f6f6cf58e.js",
+      "publicPath": "static/frontend/main-7d4383aafa2f6f6cf58e.js"
+    },
+    "main-73d19ae5781e019a0459.js": {
+      "name": "main-73d19ae5781e019a0459.js",
+      "path": "/home/tstevens/hal69000/static/frontend/main-73d19ae5781e019a0459.js",
+      "publicPath": "static/frontend/main-73d19ae5781e019a0459.js"
     }
   },
   "chunks": {
     "main": [
-      "main-a5a2aefb34d33cd1e915.js"
+      "main-73d19ae5781e019a0459.js"
     ]
   },
   "publicPath": "static/frontend/"
