@@ -1,3 +1,5 @@
+@use 'colours';
+
 #login-container {
 	display: flex;
   align-items: center;
@@ -16,7 +18,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background: #303030;
+  background: colours.$background-colour;
 
   div { height: 125px };
 
@@ -38,17 +40,13 @@
     padding-top: 8px;
     padding-bottom: 8px;
     border: 0;
-    border-bottom: 1px solid #212121;
+    border-bottom: 1px solid colours.$page-background-colour;
     background-color: inherit;
     outline: none;
     color: inherit;
   }
 
-  input[type=text]:focus, input[type=password]:focus {
-    border: 0;
-    border-bottom: 2px solid #212121;
-    outline: none;
-  }
+  input[type=text]:focus, input[type=password]:focus { border-bottom: 2px solid colours.$page-background-colour; }
 
   input[type=submit] {
     width: 100%;

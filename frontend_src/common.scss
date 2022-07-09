@@ -1,11 +1,13 @@
+@use 'colours';
+
 * {
   font-family: sans-serif;
 }
 
 html {
   height: 100%;
-  background: #212121;
-  color: #FAFAFA;
+  background: colours.$page-background-colour;
+  color: colours.$text-colour;
 }
 
 body {
