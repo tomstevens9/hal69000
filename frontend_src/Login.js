@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login as loginAction } from './authSlice'
 import { login } from './login_util.js'
-import './login.css'
+import './login.scss'
 import Mario from './mario.webp'
 
 function Login (props) {
@@ -23,7 +23,7 @@ function Login (props) {
 
   return (
     <div id='login-container'>
-      <div id='login-box'>
+      <div className='login-box'>
         <img src={Mario} alt='Tom in Mario hat' />
         <div>
           <form onSubmit={loginHandler}>
